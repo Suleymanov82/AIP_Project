@@ -1,0 +1,88 @@
+<% layout('layout/page') %>
+
+<div class="container add-page">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h2>Добавить объявление</h2>
+      <p class="text-muted">Заполните все обязательные поля и ваша запчасть появится в каталоге.</p>
+
+      <% if (error) { %>
+        <div class="alert alert-danger"><%= error %></div>
+      <% } %>
+
+      <form method="post" action="/parts/add/new" class="part-form">
+        <div class="form-group">
+          <label for="title">Название запчасти <span class="text-danger">*</span></label>
+          <input type="text" id="title" name="title" class="form-control" placeholder="Например: Тормозные диски передние Brembo" required>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="category">Категория <span class="text-danger">*</span></label>
+              <select id="category" name="category" class="form-control" required>
+                <option value="">Выберите категорию</option>
+                <% categories.forEach(function(cat) { %>
+                  <option value="<%= cat %>"><%= cat %></option>
+                <% }); %>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="condition">Состояние <span class="text-danger">*</span></label>
+              <select id="condition" name="condition" class="form-control" required>
+                <option value="">Выберите состояние</option>
+                <option value="Новая">Новая</option>
+                <option value="Б/у">Б/у</option>
+                <option value="На восстановление">На восстановление</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="brand">Марка автомобиля <span class="text-danger">*</span></label>
+              <input type="text" id="brand" name="brand" class="form-control" placeholder="Toyota, BMW..." required>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="model">Модель <span class="text-danger">*</span></label>
+              <input type="text" id="model" name="model" class="form-control" placeholder="Camry, 3 Series..." required>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label for="year">Год выпуска</label>
+              <input type="number" id="year" name="year" class="form-control" placeholder="2018" min="1980" max="2025">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="price">Цена (₽) <span class="text-danger">*</span></label>
+          <input type="number" id="price" name="price" class="form-control" placeholder="5000" min="0" required>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Описание</label>
+          <textarea id="description" name="description" class="form-control" rows="4" placeholder="Подробное описание состояния, комплектности, причины продажи..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="image">Ссылка на фотографию</label>
+          <input type="url" id="image" name="image" class="form-control" placeholder="https://example.com/photo.jpg">
+          <p class="help-block">Вставьте прямую ссылку на изображение запчасти</p>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-success btn-lg">Опубликовать объявление</button>
+          <a href="/parts" class="btn btn-default btn-lg">Отмена</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

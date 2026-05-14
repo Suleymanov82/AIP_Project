@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> | АвтоДеталь</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><i class="fa-solid fa-gears"></i> АвтоДеталь</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar">
+      <form class="navbar-form navbar-left" method="get" action="/parts">
+        <div class="form-group">
+          <input type="text" name="search" class="form-control" placeholder="Поиск запчастей..." value="">
+        </div>
+        <button type="submit" class="btn btn-primary">Найти</button>
+      </form>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Категории <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <% navCategories.forEach(function(cat) { %>
+              <li><a href="/parts?category=<%= encodeURIComponent(cat.name) %>"><%- cat.icon %> <%= cat.name %></a></li>
+            <% }); %>
+          </ul>
+        </li>
+        <li><a href="/parts">Все запчасти</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if (user) { %>
+          <li><a href="/parts/add/new" class="btn-add-nav">+ Добавить</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa-solid fa-user"></i> <%= user.username %> <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <form method="post" action="/logout" style="padding: 3px 20px;">
+                  <button type="submit" class="btn btn-link btn-logout">Выйти</button>
+                </form>
+              </li>
+            </ul>
+          </li>
+        <% } else { %>
+          <li><a href="/logreg">Войти / Зарегистрироваться</a></li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-content">
+  <%- body %>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="footer-brand"><i class="fa-solid fa-gears"></i> АвтоДеталь</div>
+        <p style="font-size:13px;margin-top:8px;">Маркетплейс автозапчастей.<br>Найдите нужную деталь быстро и выгодно.</p>
+      </div>
+      <div class="col-sm-4">
+        <h4>Категории</h4>
+        <ul class="footer-links">
+          <% navCategories.slice(0,4).forEach(function(cat) { %>
+            <li><a href="/parts?category=<%= encodeURIComponent(cat.name) %>"><%- cat.icon %> <%= cat.name %></a></li>
+          <% }); %>
+        </ul>
+      </div>
+      <div class="col-sm-4">
+        <h4>&nbsp;</h4>
+        <ul class="footer-links">
+          <% navCategories.slice(4).forEach(function(cat) { %>
+            <li><a href="/parts?category=<%= encodeURIComponent(cat.name) %>"><%- cat.icon %> <%= cat.name %></a></li>
+          <% }); %>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <p class="text-center text-muted">&copy; 2024 АвтоДеталь. Все права защищены.</p>
+  </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

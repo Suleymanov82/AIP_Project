@@ -1,0 +1,88 @@
+<% layout('layout/page') %>
+
+<section class="hero-section">
+  <div class="container">
+    <div class="hero-content text-center">
+      <h1>Найдите нужную <span class="hero-accent">автозапчасть</span></h1>
+      <p class="hero-subtitle">Тысячи деталей от проверенных продавцов по лучшим ценам</p>
+      <form class="hero-search" method="get" action="/parts">
+        <div class="input-group input-group-lg">
+          <input type="text" name="search" class="form-control" placeholder="Введите название, марку или модель...">
+          <span class="input-group-btn">
+            <button class="btn btn-warning" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Найти</button>
+          </span>
+        </div>
+      </form>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">20+</div>
+          <div class="hero-stat-label">Запчастей</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">8</div>
+          <div class="hero-stat-label">Категорий</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">100%</div>
+          <div class="hero-stat-label">Проверено</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="categories-section">
+  <div class="container">
+    <h2 class="section-title">Категории запчастей</h2>
+    <p class="section-subtitle">Выберите нужную категорию для быстрого поиска</p>
+    <div class="row">
+      <% navCategories.forEach(function(cat) { %>
+        <div class="col-xs-6 col-sm-3">
+          <a href="/parts?category=<%= encodeURIComponent(cat.name) %>" class="category-card">
+            <div class="category-icon"><%- cat.icon %></div>
+            <div class="category-name"><%= cat.name %></div>
+          </a>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<section class="recent-section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Свежие объявления</h2>
+        <p class="section-subtitle" style="margin-bottom:0">Только что добавленные запчасти</p>
+      </div>
+      <a href="/parts" class="btn-outline-dark">Все запчасти →</a>
+    </div>
+    <div class="row">
+      <% recentParts.forEach(function(part) { %>
+        <div class="col-sm-6 col-md-3">
+          <div class="part-card">
+            <a href="/parts/<%= part._id %>">
+              <div class="part-card-img">
+                <img src="<%= part.image %>" alt="<%= part.title %>" onerror="this.src='https://placehold.co/400x300?text=Нет+фото'">
+              </div>
+              <div class="part-card-body">
+                <div class="part-condition condition-<%= part.condition === 'Новая' ? 'new' : (part.condition === 'Б/у' ? 'used' : 'restore') %>">
+                  <%= part.condition %>
+                </div>
+                <h4 class="part-title"><%= part.title %></h4>
+                <p class="part-meta"><%= part.brand %> <%= part.model %></p>
+                <p class="part-category"><%= part.category %></p>
+                <p class="part-price"><%= part.price.toLocaleString('ru-RU') %> ₽</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+    <% if (recentParts.length === 0) { %>
+      <div class="alert alert-info text-center">
+        Объявлений пока нет. <a href="/parts/add/new">Добавьте первое!</a>
+      </div>
+    <% } %>
+  </div>
+</section>

@@ -1,0 +1,97 @@
+<% layout('layout/page') %>
+
+<div class="container parts-page">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="filter-panel">
+        <h3>Фильтры</h3>
+        <form method="get" action="/parts">
+          <div class="form-group">
+            <label>Поиск</label>
+            <input type="text" name="search" class="form-control" placeholder="Название, марка..." value="<%= query.search || '' %>">
+          </div>
+          <div class="form-group">
+            <label>Категория</label>
+            <select name="category" class="form-control">
+              <option value="">Все категории</option>
+              <% categories.forEach(function(cat) { %>
+                <option value="<%= cat %>" <%= query.category === cat ? 'selected' : '' %>><%= cat %></option>
+              <% }); %>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Марка</label>
+            <input type="text" name="brand" class="form-control" placeholder="Toyota, BMW..." value="<%= query.brand || '' %>">
+          </div>
+          <div class="form-group">
+            <label>Состояние</label>
+            <select name="condition" class="form-control">
+              <option value="">Любое</option>
+              <option value="Новая" <%= query.condition === 'Новая' ? 'selected' : '' %>>Новая</option>
+              <option value="Б/у" <%= query.condition === 'Б/у' ? 'selected' : '' %>>Б/у</option>
+              <option value="На восстановление" <%= query.condition === 'На восстановление' ? 'selected' : '' %>>На восстановление</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Цена от (₽)</label>
+            <input type="number" name="minPrice" class="form-control" placeholder="0" value="<%= query.minPrice || '' %>">
+          </div>
+          <div class="form-group">
+            <label>Цена до (₽)</label>
+            <input type="number" name="maxPrice" class="form-control" placeholder="999999" value="<%= query.maxPrice || '' %>">
+          </div>
+          <div class="form-group">
+            <label>Сортировка</label>
+            <select name="sort" class="form-control">
+              <option value="newest" <%= query.sort === 'newest' ? 'selected' : '' %>>Сначала новые</option>
+              <option value="price_asc" <%= query.sort === 'price_asc' ? 'selected' : '' %>>Цена: по возрастанию</option>
+              <option value="price_desc" <%= query.sort === 'price_desc' ? 'selected' : '' %>>Цена: по убыванию</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Применить</button>
+          <a href="/parts" class="btn btn-default btn-block">Сбросить</a>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-sm-9">
+      <div class="parts-header">
+        <h2><%= title %></h2>
+        <p class="results-count">Найдено: <strong><%= parts.length %></strong> запчастей</p>
+        <% if (user) { %>
+          <a href="/parts/add/new" class="btn btn-success">+ Добавить запчасть</a>
+        <% } %>
+      </div>
+
+      <% if (parts.length === 0) { %>
+        <div class="alert alert-warning">
+          <h4>Ничего не найдено</h4>
+          <p>Попробуйте изменить параметры поиска или <a href="/parts">сбросить фильтры</a>.</p>
+        </div>
+      <% } else { %>
+        <div class="row">
+          <% parts.forEach(function(part) { %>
+            <div class="col-sm-6 col-md-4">
+              <div class="part-card">
+                <a href="/parts/<%= part._id %>">
+                  <div class="part-card-img">
+                    <img src="<%= part.image %>" alt="<%= part.title %>" onerror="this.src='https://placehold.co/400x300?text=Нет+фото'">
+                  </div>
+                  <div class="part-card-body">
+                    <div class="part-condition condition-<%= part.condition === 'Новая' ? 'new' : (part.condition === 'Б/у' ? 'used' : 'restore') %>">
+                      <%= part.condition %>
+                    </div>
+                    <h4 class="part-title"><%= part.title %></h4>
+                    <p class="part-meta"><%= part.brand %> <%= part.model %><% if (part.year) { %>, <%= part.year %><% } %></p>
+                    <p class="part-category"><small><%= part.category %></small></p>
+                    <p class="part-price"><%= part.price.toLocaleString('ru-RU') %> ₽</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</div>

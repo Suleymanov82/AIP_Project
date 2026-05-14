@@ -1,0 +1,20 @@
+<% layout('layout/page') %>
+
+<div class="container error-page">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 text-center">
+      <div class="error-content">
+        <h1 class="error-code"><%= error.status || 500 %></h1>
+        <h2><%= message %></h2>
+        <% if (error && error.stack) { %>
+          <pre class="error-stack"><%= error.stack %></pre>
+        <% } %>
+        <div class="error-actions">
+          <a href="/" class="btn btn-primary btn-lg">На главную</a>
+          <a href="javascript:history.back()" class="btn btn-default btn-lg">Назад</a>
+          <a href="/parts" class="btn btn-default btn-lg">Каталог запчастей</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

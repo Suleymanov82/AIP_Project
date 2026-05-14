@@ -1,0 +1,41 @@
+<% layout('layout/page') %>
+
+<div class="logreg-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+        <div class="logreg-card">
+          <div class="logreg-header">
+            <div class="logreg-logo"><i class="fa-solid fa-gears"></i></div>
+            <h2>АвтоДеталь</h2>
+            <p>Войдите или зарегистрируйтесь для доступа ко всем функциям</p>
+          </div>
+
+          <% if (error) { %>
+            <div class="alert alert-danger"><%= error %></div>
+          <% } %>
+
+          <form method="post" action="/logreg">
+            <div class="form-group">
+              <label for="username">Имя пользователя</label>
+              <input type="text" id="username" name="username" class="form-control" placeholder="Введите логин" required autofocus>
+            </div>
+            <div class="form-group">
+              <label for="password">Пароль</label>
+              <input type="password" id="password" name="password" class="form-control" placeholder="Введите пароль" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Войти / Зарегистрироваться</button>
+          </form>
+
+          <div class="logreg-hint">
+            <p><strong>Как это работает:</strong></p>
+            <ul>
+              <li>Если пользователь с таким логином существует — выполняется вход</li>
+              <li>Если нет — создаётся новый аккаунт автоматически</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

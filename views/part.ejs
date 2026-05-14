@@ -1,0 +1,105 @@
+<% layout('layout/page') %>
+
+<div class="container part-detail-page">
+  <div class="row">
+    <div class="col-sm-8">
+      <nav class="breadcrumb-nav">
+        <ol class="breadcrumb">
+          <li><a href="/">Главная</a></li>
+          <li><a href="/parts">Запчасти</a></li>
+          <li><a href="/parts?category=<%= encodeURIComponent(part.category) %>"><%= part.category %></a></li>
+          <li class="active"><%= part.title %></li>
+        </ol>
+      </nav>
+
+      <div class="part-detail-card">
+        <div class="part-detail-img">
+          <img src="<%= part.image %>" alt="<%= part.title %>" onerror="this.src='https://placehold.co/600x400?text=Нет+фото'">
+        </div>
+        <div class="part-detail-info">
+          <div class="part-condition-lg condition-<%= part.condition === 'Новая' ? 'new' : (part.condition === 'Б/у' ? 'used' : 'restore') %>">
+            <%= part.condition %>
+          </div>
+          <h1><%= part.title %></h1>
+          <p class="part-price-lg"><%= part.price.toLocaleString('ru-RU') %> ₽</p>
+
+          <table class="table table-bordered spec-table">
+            <tbody>
+              <tr>
+                <td><strong>Категория</strong></td>
+                <td><a href="/parts?category=<%= encodeURIComponent(part.category) %>"><%= part.category %></a></td>
+              </tr>
+              <tr>
+                <td><strong>Марка</strong></td>
+                <td><a href="/parts?brand=<%= encodeURIComponent(part.brand) %>"><%= part.brand %></a></td>
+              </tr>
+              <tr>
+                <td><strong>Модель</strong></td>
+                <td><%= part.model %></td>
+              </tr>
+              <% if (part.year) { %>
+              <tr>
+                <td><strong>Год выпуска</strong></td>
+                <td><%= part.year %></td>
+              </tr>
+              <% } %>
+              <tr>
+                <td><strong>Состояние</strong></td>
+                <td><%= part.condition %></td>
+              </tr>
+              <tr>
+                <td><strong>Дата публикации</strong></td>
+                <td><%= part.created.toLocaleDateString('ru-RU') %></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <% if (part.description) { %>
+            <div class="part-description">
+              <h3>Описание</h3>
+              <p><%= part.description %></p>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="seller-panel">
+        <h3>Продавец</h3>
+        <% if (part.seller) { %>
+          <div class="seller-info">
+            <div class="seller-avatar">👤</div>
+            <p class="seller-name"><strong><%= part.seller.username %></strong></p>
+            <p class="seller-date">Зарегистрирован: <%= part.seller.created.toLocaleDateString('ru-RU') %></p>
+          </div>
+          <% if (user) { %>
+            <a href="mailto:seller@example.com" class="btn btn-success btn-block">Написать продавцу</a>
+          <% } else { %>
+            <a href="/logreg" class="btn btn-primary btn-block">Войдите, чтобы написать</a>
+          <% } %>
+        <% } else { %>
+          <p class="text-muted">Информация о продавце недоступна</p>
+        <% } %>
+      </div>
+
+      <div class="sidebar-categories">
+        <h3>Категории</h3>
+        <ul class="list-group">
+          <% categories.forEach(function(cat) { %>
+            <li class="list-group-item <%= part.category === cat ? 'active' : '' %>">
+              <a href="/parts?category=<%= encodeURIComponent(cat) %>" class="<%= part.category === cat ? 'active-link' : '' %>"><%= cat %></a>
+            </li>
+          <% }); %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <a href="/parts" class="btn btn-default">← Назад к каталогу</a>
+      <a href="/parts?category=<%= encodeURIComponent(part.category) %>" class="btn btn-default">Ещё в категории "<%= part.category %>"</a>
+    </div>
+  </div>
+</div>

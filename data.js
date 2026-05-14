@@ -1,0 +1,222 @@
+module.exports = [
+  {
+    title: 'Поршневая группа 4-цилиндровая',
+    category: 'Двигатель',
+    brand: 'Toyota',
+    model: 'Camry',
+    year: 2018,
+    price: 12500,
+    condition: 'Новая',
+    description: 'Поршневая группа в сборе для двигателя 2AR-FE. Оригинальное качество, полный комплект с кольцами и пальцами.',
+    image: 'https://racestage.ru/image/cache/catalog/cpcarrillo/8506_cppistons_sc7327-4_fs02-01%402x-220x220.jpg'
+  },
+  {
+    title: 'Головка блока цилиндров',
+    category: 'Двигатель',
+    brand: 'BMW',
+    model: '3 Series',
+    year: 2015,
+    price: 35000,
+    condition: 'Б/у',
+    description: 'ГБЦ для двигателя N52B30. Снята с автомобиля с пробегом 80 000 км. Проверена, не гнутая.',
+    image: 'https://r.autostrong-m.ru/p/9196676'
+  },
+  {
+    title: 'Масляный насос',
+    category: 'Двигатель',
+    brand: 'Volkswagen',
+    model: 'Golf',
+    year: 2017,
+    price: 4800,
+    condition: 'Новая',
+    description: 'Масляный насос для двигателя 1.4 TSI. Увеличенная производительность, повышенный ресурс.',
+    image: 'https://a1.drive-data.ru/dkAAAgJPLuA-1920.jpg'
+  },
+  {
+    title: 'АКПП 6-ступенчатая',
+    category: 'Трансмиссия',
+    brand: 'Honda',
+    model: 'Accord',
+    year: 2019,
+    price: 85000,
+    condition: 'Б/у',
+    description: 'Автоматическая коробка передач 6AT. Пробег 60 000 км, без замечаний, все передачи работают чётко.',
+    image: 'https://media.motorlandby.ru/part/7515040/0_wm_viki.jpg'
+  },
+  {
+    title: 'Сцепление в сборе',
+    category: 'Трансмиссия',
+    brand: 'Ford',
+    model: 'Focus',
+    year: 2016,
+    price: 7200,
+    condition: 'Новая',
+    description: 'Комплект сцепления: диск, корзина, выжимной подшипник. Производитель LUK, Германия.',
+    image: 'https://remont-powershift.ru/files/products/sceplenie-ford-fokus-3-pauer-shift.300x300w.jpg?81e0d395373e941fd9f3687308119dad'
+  },
+  {
+    title: 'Дифференциал заднего моста',
+    category: 'Трансмиссия',
+    brand: 'Mercedes-Benz',
+    model: 'E-Class',
+    year: 2014,
+    price: 28000,
+    condition: 'Б/у',
+    description: 'Дифференциал самоблокирующийся LSD. Снят рабочий, в отличном состоянии.',
+    image: 'https://avtoxis.ru/assets/cache_image/images/pictures/new/Диффер%204.6%20без%20блок%20%20(3)_610x395_6d7.jpg'
+  },
+  {
+    title: 'Тормозные диски передние',
+    category: 'Тормозная система',
+    brand: 'Audi',
+    model: 'A4',
+    year: 2020,
+    price: 5600,
+    condition: 'Новая',
+    description: 'Вентилируемые тормозные диски 320мм. Комплект 2 шт. Производитель Brembo.',
+    image: 'https://a1.drive-data.ru/b3a86d4s-960.jpg'
+  },
+  {
+    title: 'Суппорт тормозной задний',
+    category: 'Тормозная система',
+    brand: 'Nissan',
+    model: 'X-Trail',
+    year: 2017,
+    price: 3900,
+    condition: 'На восстановление',
+    description: 'Суппорт задний правый. Требует замены уплотнений. Корпус целый, без трещин.',
+    image: 'https://ir.ozone.ru/s3/multimedia-1-r/wc1000/7508971611.jpg'
+  },
+  {
+    title: 'Амортизаторы передние',
+    category: 'Подвеска',
+    brand: 'Toyota',
+    model: 'RAV4',
+    year: 2019,
+    price: 9800,
+    condition: 'Новая',
+    description: 'Газомасляные амортизаторы SACHS. Комплект 2 шт для передней оси.',
+    image: 'https://trialli.ru/upload/resize_cache/iblock/ada/952_760_1/ada555b2f17461a94d105864e9afe6a8.jpg'
+  },
+  {
+    title: 'Рычаг подвески нижний',
+    category: 'Подвеска',
+    brand: 'Hyundai',
+    model: 'Tucson',
+    year: 2018,
+    price: 4200,
+    condition: 'Б/у',
+    description: 'Нижний рычаг передней подвески левый. Снят с машины 2018 года, пробег 45 000 км.',
+    image: 'https://clubturbo.ru/upload/iblock/ca1/fzgpb8c1tyuypsigxslh619tpjyz335h/de94954d_4c52_11ec_80e3_925703e9dfbc_ac28c99f_58ca_11ec_80e3_925703e9dfbc.resize2.jpg'
+  },
+  {
+    title: 'Стабилизатор поперечной устойчивости',
+    category: 'Подвеска',
+    brand: 'Kia',
+    model: 'Sportage',
+    year: 2020,
+    price: 2800,
+    condition: 'Новая',
+    description: 'Усиленный стабилизатор +20% жёсткости. Улучшает управляемость в поворотах.',
+    image: 'https://static.baza.drom.ru/v/1729130004452_block'
+  },
+  {
+    title: 'Генератор 140А',
+    category: 'Электрика',
+    brand: 'Renault',
+    model: 'Megane',
+    year: 2016,
+    price: 8500,
+    condition: 'Б/у',
+    description: 'Генератор VALEO 140 ампер. Пробег 70 000 км, проверен, выдаёт 14.2В.',
+    image: 'https://komponentavto.ru/upload/iblock/a16/8tdgw4fprynhr0pnk76umo8harms3ca0.jpg'
+  },
+  {
+    title: 'Стартер',
+    category: 'Электрика',
+    brand: 'Peugeot',
+    model: '308',
+    year: 2015,
+    price: 4500,
+    condition: 'Новая',
+    description: 'Стартер BOSCH 1.4кВт. Подходит для двигателей EP6 и EP3.',
+    image: 'https://tehnichka-express.ru/uploads/blog/dlya%20chego%20nuzhen%20starter%20na%20avto.jpg'
+  },
+  {
+    title: 'Бампер передний',
+    category: 'Кузов',
+    brand: 'Toyota',
+    model: 'Corolla',
+    year: 2021,
+    price: 15000,
+    condition: 'Новая',
+    description: 'Бампер передний в сборе с решёткой радиатора. Цвет: белый перламутр (070).',
+    image: 'https://fdauto.ru/img_parts/full/fb44fa8e9167531776a3f123e68fff17.jpg'
+  },
+  {
+    title: 'Крыло переднее левое',
+    category: 'Кузов',
+    brand: 'Lada',
+    model: 'Vesta',
+    year: 2019,
+    price: 5500,
+    condition: 'Б/у',
+    description: 'Крыло переднее левое, незначительные сколы, без вмятин. Цвет серебристый.',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeWRYz_Nj-UMIYKuAKseojEotNBrYpIiquLg&s'
+  },
+  {
+    title: 'Радиатор охлаждения',
+    category: 'Охлаждение',
+    brand: 'Mazda',
+    model: 'CX-5',
+    year: 2018,
+    price: 11000,
+    condition: 'Новая',
+    description: 'Алюминиевый радиатор охлаждения KOYO. Увеличенная площадь теплообмена.',
+    image: 'https://luzar.ru/upload/resize_cache/iblock/49c/1024_683_13bd367a92aff465acafe919f4b80bb4d/49c5f5eedcb947221694dbe201c52ebe.jpg'
+  },
+  {
+    title: 'Термостат с корпусом',
+    category: 'Охлаждение',
+    brand: 'Subaru',
+    model: 'Impreza',
+    year: 2017,
+    price: 2200,
+    condition: 'Новая',
+    description: 'Термостат 76°C в сборе с корпусом. Производитель GATES, Великобритания.',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR7lEmfBiYsJaf93m0_aWYFP_QTQM-l7nL4w&s'
+  },
+  {
+    title: 'Топливный насос высокого давления',
+    category: 'Топливная система',
+    brand: 'BMW',
+    model: '5 Series',
+    year: 2016,
+    price: 22000,
+    condition: 'Б/у',
+    description: 'ТНВД для N47D20. Снят с рабочего авто, пробег 95 000 км. Давление в норме.',
+    image: 'https://ekb.ruli.ru/wa-data/public/shop/products/95/53/615395/images/4287439/d76167b2eb.950.jpg'
+  },
+  {
+    title: 'Форсунки дизельные комплект',
+    category: 'Топливная система',
+    brand: 'Volkswagen',
+    model: 'Passat',
+    year: 2015,
+    price: 32000,
+    condition: 'На восстановление',
+    description: 'Комплект 4 форсунки BOSCH 0445110. Требуют промывки и регулировки.',
+    image: 'https://cdn.izap24.ru/images/prodacts/sourse/185349/185349703_nasos-forsunki-volkswagen-passat-b6-2-0-tdi-bkp-komplekt.jpg'
+  },
+  {
+    title: 'Воздушный фильтр нулевого сопротивления',
+    category: 'Топливная система',
+    brand: 'Universal',
+    model: 'Универсальный',
+    year: 2023,
+    price: 1800,
+    condition: 'Новая',
+    description: 'Спортивный фильтр K&N увеличивает мощность до +5 л.с. Многоразовый, моющийся.',
+    image: 'https://avatars.mds.yandex.net/get-mpic/18243071/2a00000199331755073ff402e63fed27b556/orig'
+  }
+];
